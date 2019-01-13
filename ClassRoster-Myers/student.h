@@ -36,40 +36,45 @@ public:
 
    virtual Degree getDegreeProgram() const;
    // returns the student's degree program as a Degree enum
-
-   /*  Output methods  */
-   virtual void print() const;
-   // prints the student object to cout
    
    /*  Mutators  */
-   void set_studentID(string new_studentID);
+   void setStudentID(string new_studentID);
    // takes a string and sets it to the student's ID
 
-   void set_first_name(string new_first_name);
+   void setFirstname(string new_firstname);
    // takes a string and sets it to the student's first name
 
-   void set_last_name(string new_last_name);
+   void setLastname(string new_lastname);
    // takes a string and sets it to the student's last name
 
-   void set_email_address(string new_email_address);
+   void setEmailAddress(string new_emailAddress);
    // takes a string and sets it to the student's email address
 
-   void set_age(int new_age);
+   void setAge(int new_age);
    // takes an int and sets it to the student's age
 
-   void set_days_per_class(int* new_days_per_class);
-   // takes a pointer to an int[3] array, and sets the student's days in classes
+   void setDaysPerClass(int class1, int class2, int class3);
+   // sets the student's days in class to the given ints
 
-   void set_degree_type(Degree new_degree);
+   void setDegreeType(Degree new_degree);
    // takes in a Degree enum and sets it to the student's degree program
 
+   /*  Other methods  */
+   virtual void print() const;
+   // prints the student object to cout
+
+   float averageDaysPerClass() const;
+   // returns the average number of days the student has been in class
+
 private:
+   static const int NUMBER_OF_CLASSES = 3;
+
    string studentID;
    string firstname;
    string lastname;
    string emailAddress;
    int age;
-   int daysPerClass[3];
+   int daysPerClass[NUMBER_OF_CLASSES];
    Degree degreeProgram;
 };
 
