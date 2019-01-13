@@ -31,7 +31,7 @@ public:
 private:
    string studentID;
    string first_name;
-   string lastname;
+   string last_name;
    string email_address;
    int age;
    int days_per_class[3];
