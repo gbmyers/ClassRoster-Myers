@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="degree.h" />
     <ClInclude Include="networkStudent.h" />
     <ClInclude Include="roster.h" />
     <ClInclude Include="securityStudent.h" />
