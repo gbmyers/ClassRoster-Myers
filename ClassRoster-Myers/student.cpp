@@ -2,8 +2,18 @@
 #include "student.h"
 
 
-Student::Student()
+Student::Student(string studentID, string firstName, string lastName, 
+   string emailAddress, int age, int daysInCourse1, int daysInCourse2, 
+   int daysInCourse3)
 {
+   this->studentID = studentID;
+   this->firstname = firstName;
+   this->lastname = lastName;
+   this->emailAddress = emailAddress;
+   this->age = age;
+   this->daysPerClass[0] = daysInCourse1;
+   this->daysPerClass[1] = daysInCourse2;
+   this->daysPerClass[2] = daysInCourse3;
 }
 
 
@@ -11,43 +21,37 @@ Student::~Student()
 {
 }
 
-string Student::get_studentID() const
+string Student::getStudentID() const
 //return the studentID string
 {
    return studentID;
 }
 
-string Student::get_first_name() const
+string Student::getFirstname() const
 //return the student's first name string
 {
-   return first_name;
+   return firstname;
 }
 
-string Student::get_last_name() const
+string Student::getLastname() const
 //return the student's last name string
 {
-   return last_name;
+   return lastname;
 }
 
-int Student::get_age() const
+int Student::getAge() const
 //return the student's age int
 {
    return age;
 }
 
-int * Student::get_days_per_class() const
+int * Student::getDaysPerClass() const
 //create a new array with the days per class and return the pointer to it
 {
    int* days = new int[3];
    for (int i = 0; i < 3; 1++)
    {
-      days[i] = days_per_class[i]
-    }
+      days[i] = daysPerClass[i];
+   }
    return days;
-}
-
-Degree Student::get_degree_type() const
-//return the student's degree type
-{
-   return degree_type;
 }

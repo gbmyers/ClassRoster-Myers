@@ -7,18 +7,21 @@ using namespace std;
 class Student
 {
 public:
-	Student();
+	Student(string studentID, string firstName, string lastName, 
+      string emailAddress, int age, 
+      int daysInCourse1, int daysInCourse2, int daysInCourse3);
 	~Student();
 
    //accessors
-   string get_studentID() const;
-   string get_first_name() const;
-   string get_last_name() const;
-   string get_email_address() const;
-   int get_age() const;
-   int* get_days_per_class() const;
-   Degree get_degree_type() const;
-
+   string getStudentID() const;
+   string getFirstname() const;
+   string getLastname() const;
+   string getEmailAddress() const;
+   int getAge() const;
+   int* getDaysPerClass() const;
+   virtual Degree getDegreeProgram() const;
+   virtual void print() const;
+   
    //mutators
    void set_studentID(string new_studentID);
    void set_first_name(string new_first_name);
@@ -26,15 +29,15 @@ public:
    void set_email_address(string new_email_address);
    void set_age(int new_age);
    void set_days_per_class(int* new_days_per_class);
-   void get_degree_type(Degree new_degree);
+   void set_degree_type(Degree new_degree);
 
 private:
    string studentID;
-   string first_name;
-   string last_name;
-   string email_address;
+   string firstname;
+   string lastname;
+   string emailAddress;
    int age;
-   int days_per_class[3];
-   Degree degree_type;
+   int daysPerClass[3];
+   Degree degreeProgram;
 };
 
