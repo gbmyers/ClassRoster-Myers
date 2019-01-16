@@ -125,7 +125,7 @@ float Student::averageDaysPerClass() const
    return total / NUMBER_OF_CLASSES;
 }
 
-
+/* Basic test of the student class
 int main() 
 {
    Student test1("AAA1", "Geoff", "Myres", "myers.geoffrey@gmail.com", 38, 10, 20, 30);
@@ -137,3 +137,4 @@ int main()
    test1.setAge(39);
    test1.print();
 }
+*/
