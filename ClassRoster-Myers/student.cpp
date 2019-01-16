@@ -2,7 +2,11 @@
 #include "student.h"
 
 
-Student::Student(string studentID, string firstName, string lastName, 
+Student::Student()
+{
+}
+
+Student::Student(string studentID, string firstName, string lastName,
    string emailAddress, int age, int daysInCourse1, int daysInCourse2, 
    int daysInCourse3)
 {
