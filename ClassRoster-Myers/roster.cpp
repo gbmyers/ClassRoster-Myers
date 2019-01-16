@@ -1,5 +1,4 @@
-#include "pch.h"
-#include "roster.h"
+/*#include "roster.h"
 
 
 Roster::Roster()
@@ -10,3 +9,4 @@ Roster::Roster()
 Roster::~Roster()
 {
 }
+*/

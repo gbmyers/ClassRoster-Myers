@@ -49,11 +49,16 @@ int * Student::getDaysPerClass() const
 //create a new array with the days per class and return the pointer to it
 {
    int* days = new int[3];
-   for (int i = 0; i < 3; 1++)
+   for (int i = 0; i < 3; i++)
    {
       days[i] = daysPerClass[i];
    }
    return days;
+}
+
+Degree Student::getDegreeProgram() const
+{
+   return degreeProgram;
 }
 
 void Student::setStudentID(string new_studentID)
@@ -107,6 +112,7 @@ void Student::print() const
    cout << "Student ID: " << studentID << endl;
    cout << "Age: " << age << endl;
    cout << "Email address: " << emailAddress << endl;
+   cout << "Average days in class: " << this->averageDaysPerClass() << endl;
 }
 
 float Student::averageDaysPerClass() const
@@ -117,4 +123,17 @@ float Student::averageDaysPerClass() const
       total = total + daysPerClass[i];
    }
    return total / NUMBER_OF_CLASSES;
+}
+
+
+int main() 
+{
+   Student test1("AAA1", "Geoff", "Myres", "myers.geoffrey@gmail.com", 38, 10, 20, 30);
+   test1.print();
+   test1.setStudentID("BBB2");
+   test1.setFirstname("Geoffrey");
+   test1.setLastname("Myers");
+   test1.setDaysPerClass(5, 10, 20);
+   test1.setAge(39);
+   test1.print();
 }

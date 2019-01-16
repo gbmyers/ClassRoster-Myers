@@ -1,5 +1,4 @@
-#include "pch.h"
-#include "networkStudent.h"
+/*#include "networkStudent.h"
 
 
 NetworkStudent::NetworkStudent()
@@ -10,3 +9,4 @@ NetworkStudent::NetworkStudent()
 NetworkStudent::~NetworkStudent()
 {
 }
+*/
