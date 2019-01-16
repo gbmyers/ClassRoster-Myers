@@ -34,7 +34,7 @@ void SoftwareStudent::print() const
 }
 
 
-
+/*
 int main()
 {
    SoftwareStudent test1("AAA1", "Geoff", "Myres", "myers.geoffrey@gmail.com", 38, 10, 20, 30);
@@ -46,3 +46,4 @@ int main()
    test1.setAge(39);
    test1.print();
 }
+*/
