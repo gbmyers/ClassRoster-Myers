@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "SecurityStudent.h"
 
 using namespace std;
@@ -30,11 +31,11 @@ Degree SecurityStudent::getDegreeProgram() const
 void SecurityStudent::print() const
 {
    Student::print();
-   cout << "Degree Program: Security" << endl;
+   cout << left << setw(DEGREE_W) << "Security" << endl;
 }
 
 
-
+/*
 int main()
 {
    SecurityStudent test1("AAA1", "Geoff", "Myres", "myers.geoffrey@gmail.com", 38, 10, 20, 30);
@@ -46,3 +47,4 @@ int main()
    test1.setAge(39);
    test1.print();
 }
+*/

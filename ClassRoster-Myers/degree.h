@@ -3,6 +3,6 @@
 /* types of degree programs */
 enum Degree {	
    SECURITY,
-   NETWORKING,
+   NETWORK,
    SOFTWARE
 };

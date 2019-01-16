@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "student.h"
 
 
@@ -41,6 +42,11 @@ string Student::getLastname() const
 //return the student's last name string
 {
    return lastname;
+}
+
+string Student::getEmailAddress() const
+{
+   return emailAddress;
 }
 
 int Student::getAge() const
@@ -112,11 +118,11 @@ void Student::setDegreeType(Degree new_degree)
 
 void Student::print() const
 {
-   cout << "Name: " << lastname << ", " << firstname << endl;
-   cout << "Student ID: " << studentID << endl;
-   cout << "Age: " << age << endl;
-   cout << "Email address: " << emailAddress << endl;
-   cout << "Average days in class: " << this->averageDaysPerClass() << endl;
+   cout << left << setw(NAME_W) << this->getLastname() + ", " + this->getFirstname()
+      << setw(ID_W) << this->getStudentID()
+      << setw(AGE_W) << this->getAge()
+      << setw(EMAIL_W) << this->getEmailAddress()
+      << setw(DAYPERCLASS_W) << this->averageDaysPerClass();
 }
 
 float Student::averageDaysPerClass() const

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "NetworkStudent.h"
 
 using namespace std;
@@ -6,7 +7,7 @@ using namespace std;
 NetworkStudent::NetworkStudent()
 {
    Student::Student();
-   this->setDegreeType(NETWORKING);
+   this->setDegreeType(NETWORK);
 }
 
 NetworkStudent::NetworkStudent(string studentID, string firstName, string lastName,
@@ -15,7 +16,7 @@ NetworkStudent::NetworkStudent(string studentID, string firstName, string lastNa
    Student(studentID, firstName, lastName, emailAddress, age,
       daysInCourse1, daysInCourse2, daysInCourse3)
 {
-   this->setDegreeType(NETWORKING);
+   this->setDegreeType(NETWORK);
 }
 
 NetworkStudent::~NetworkStudent()
@@ -24,13 +25,13 @@ NetworkStudent::~NetworkStudent()
 
 Degree NetworkStudent::getDegreeProgram() const
 {
-   return NETWORKING;
+   return NETWORK;
 }
 
 void NetworkStudent::print() const
 {
    Student::print();
-   cout << "Degree Program: Networking" << endl;
+   cout << left << setw(DEGREE_W) << "Networking" << endl;
 }
 
 

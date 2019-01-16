@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "softwareStudent.h"
 
 using namespace std;
@@ -30,7 +31,7 @@ Degree SoftwareStudent::getDegreeProgram() const
 void SoftwareStudent::print() const
 {
    Student::print();
-   cout << "Degree Program: Software" << endl;
+   cout << left <<  setw(DEGREE_W) << "Software" << endl;
 }
 
 

@@ -67,6 +67,15 @@ public:
    float averageDaysPerClass() const;
    // returns the average number of days the student has been in class
 
+   //column widths for printing
+   static const int NAME_W = 30;
+   static const int ID_W = 4;
+   static const int EMAIL_W = 30;
+   static const int AGE_W = 4;
+   static const int DAYPERCLASS_W = 10;
+   static const int DEGREE_W = 12;
+
+
 private:
    static const int NUMBER_OF_CLASSES = 3;
 
