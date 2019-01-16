@@ -1,6 +1,7 @@
 #include "roster.h"
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -57,6 +58,56 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
 void Roster::add(string studentString)
 //adds a student based on a single string formatted as "ID,First,Last,email,age,class1,class2,class3,program"
 {
+   vector<string> elements;   //hold each element as the string is separated by commas
+   int start = 0;             //the start index of each element
+   int length = 0;            //the length of each element
+   string substring;          //extracted substring to add to the array
+
+   //loop over each element in the array
+   for (int end = 0; end < studentString.size(); end++)
+   {
+      if (studentString[end] == ',')
+      {
+         length = end - start;   //lenght of substring is the end - start
+         substring = studentString.substr(start, length);   //grab the substring
+         elements.push_back(substring);                     //push it to the array
+         start = end + 1;     //update start: +1 to skip over the comma
+      }
+   }
+   //the loop doesn't grab the last element, so we grab that below
+   substring = studentString.substr(start);  //no need for end, grabs to the end of the string
+   elements.push_back(substring);
+
+   if (elements.size() == 9) {
+      //more or less elements means we have an invalid string
+      string studentID = elements[0];
+      string firstName = elements[1];
+      string lastName = elements[2];
+      string email = elements[3];
+      int age = stoi(elements[4]);
+      int class1 = stoi(elements[5]);
+      int class2 = stoi(elements[6]);
+      int class3 = stoi(elements[7]);
+      Degree program;
+      if (elements[8] == "NETWORK") {
+         program = NETWORK;
+      }
+      else if (elements[8] == "SECURITY")
+      {
+         program = SECURITY;
+      }
+      else if (elements[8] == "SOFTWARE")
+      {
+         program = SOFTWARE;
+      }
+      Roster::add(studentID, firstName, lastName, email, age, class1, class2, class3, program);
+   }
+   else
+   {
+      cout << "Unable to add student: " << studentString << endl;
+   }
+  
+   
 
 
 }
@@ -159,11 +210,12 @@ int main()
 
    Roster classRoster;
 
-   classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, 30, 35, 40, SECURITY);
+   /*classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, 30, 35, 40, SECURITY);
    classRoster.add("A2", "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, 50, 30, 40, NETWORK);
    classRoster.add("A3", "Jack", "Napoli", "The_lawyer99yahoo.com", 19, 20, 40, 33, SOFTWARE);
-   classRoster.add("A4", "Erin", "Black", "Erin.black@comcast.net", 22, 50, 58, 40, SECURITY);
+   classRoster.add("A4", "Erin", "Black", "Erin.black@comcast.net", 22, 50, 58, 40, SECURITY);*/
    classRoster.add("A5", "Geoffrey", "Myers", "myers.geoffrey@gmail.com", 39, 10, 10, 10, SOFTWARE);
+   classRoster.add("A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY");
 
    /*TODO:
       * add each student to the class roster
