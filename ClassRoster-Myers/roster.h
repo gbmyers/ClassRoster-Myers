@@ -14,13 +14,13 @@ public:
    void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree program);
    void remove(string studentID);
 
-   void printAll();
+   void printAll() const;
 
-   void printDaysInCourse(string studentID);
+   void printDaysInCourse(string studentID) const;
 
-   void printInvalidEmails();
+   void printInvalidEmails() const;
 
-   void printByDegreeProgram(int degreeProgram);
+   void printByDegreeProgram(Degree degreeProgram) const;
 
 private:
    vector<Student*> classRoster;
