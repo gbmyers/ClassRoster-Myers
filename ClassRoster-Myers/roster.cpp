@@ -9,7 +9,6 @@ Roster::Roster()
 {
 }
 
-
 Roster::~Roster()
 // free up the memory used by the class roster
 {
@@ -20,8 +19,8 @@ Roster::~Roster()
    }
 
    //found these very useful functions in the reference at cppreference.com
-   classRosterArray.clear();          //remove all items from the class roster array
-   classRosterArray.shrink_to_fit();  //this is probably superfluous since the object is about to be deleted
+
+   delete &classRosterArray;
 }
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree program)
@@ -160,6 +159,18 @@ void Roster::printAll() const
    cout << endl;
 }
 
+void Roster::printAverageDaysInCourse(string studentID) const
+{
+   //loop over the class roster looking for the given student ID
+   for (Student* student : classRosterArray)
+   {
+      if (student->getStudentID() == studentID) 
+      {
+         cout << "Student ID: " << studentID << " Averge Days in Class: " << student->averageDaysPerClass() << endl;
+      }
+   }
+}
+
 void Roster::printInvalidEmails() const
 {
    for (Student* student : classRosterArray)
@@ -196,6 +207,18 @@ void Roster::printByDegreeProgram(Degree degreeProgram) const
    cout << endl;
 }
 
+vector<string> Roster::getListOfStudentIDs()
+{
+   vector<string> studentIDList;
+
+   for (Student* student : classRosterArray)
+   {
+      studentIDList.push_back(student->getStudentID());
+   }
+
+   return studentIDList;
+}
+
 void Roster::printHeader()
 {
    cout << left << setw(Student::NAME_W) << "Name"
@@ -207,8 +230,6 @@ void Roster::printHeader()
 }
 
 
-
-
 int main() 
 {
    const string studentData[] =
@@ -217,9 +238,12 @@ int main()
    "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
    "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
    "A5,Geoffrey,Myers,gmyer12@wgu.edu,39,5,10,25,SOFTWARE" };
+    
+   const string header = "Class: Scripting and Programming - Applications – C867\n \
+Language: C++11\n \
+Student: Geoffrey Myers (SID: 000883177)\n";
 
-   string testString = "invalid email@somewhere.com";
-   if ( testString.find("*") == string::npos) cout << "not found" << endl;
+   cout << header;
 
 
    Roster classRoster;
@@ -231,12 +255,22 @@ int main()
    
    classRoster.printAll();
    classRoster.printInvalidEmails();
-   //loop through classRosterArray and for each element:
-   //   classRoster.printAverageDaysInCourse(/*current object's student id*/);
+
+   vector<string> studentIDs = classRoster.getListOfStudentIDs();
+   for (string studentID : studentIDs)
+   {
+      classRoster.printAverageDaysInCourse(studentID);
+   }
+   cout << endl;
+
 
    classRoster.printByDegreeProgram(SOFTWARE);
    classRoster.remove("A3");
    classRoster.remove("A3");
    //expected: the above line should print a message saying such a student with this ID was not found.
+
+   classRoster.printAll();
+
+   delete &classRoster;
 }
 

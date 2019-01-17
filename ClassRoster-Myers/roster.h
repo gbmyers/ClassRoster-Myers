@@ -17,11 +17,13 @@ public:
 
    void printAll() const;
 
-   void printDaysInCourse(string studentID) const;
+   void printAverageDaysInCourse(string studentID) const;
 
    void printInvalidEmails() const;
 
    void printByDegreeProgram(Degree degreeProgram) const;
+
+   vector<string> getListOfStudentIDs();
 
 private:
    vector<Student*> classRosterArray;

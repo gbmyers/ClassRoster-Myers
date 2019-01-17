@@ -5,6 +5,14 @@
 
 Student::Student()
 {
+   this->studentID = "";
+   this->firstname = "";
+   this->lastname = "";
+   this->emailAddress = "";
+   this->age = 0;
+   this->daysPerClass[0] = 0;
+   this->daysPerClass[1] = 0;
+   this->daysPerClass[2] = 0;
 }
 
 Student::Student(string studentID, string firstName, string lastName,
@@ -24,6 +32,7 @@ Student::Student(string studentID, string firstName, string lastName,
 
 Student::~Student()
 {
+   delete this;
 }
 
 string Student::getStudentID() const
@@ -136,12 +145,20 @@ float Student::averageDaysPerClass() const
 }
 
 bool Student::isEmailValid() const
+//email is considered valid if it has an '@' and a '.' and does not have a space
 {
+   //check for the lack of a space
    bool noSpace = emailAddress.find(" ") == string::npos;
+
+   //check that we do find an '@' symbol
    bool hasAt = emailAddress.find("@") != string::npos;
+
+   //check that we do have a '.'
    bool hasDot = emailAddress.find(".") != string::npos;
 
+   //email is valid if all of the above are true
    bool validEmail = noSpace && hasAt && hasDot;
+
    return validEmail;
 }
 
