@@ -33,18 +33,3 @@ void SecurityStudent::print() const
    Student::print();
    cout << left << setw(DEGREE_W) << "Security" << endl;
 }
-
-
-/*
-int main()
-{
-   SecurityStudent test1("AAA1", "Geoff", "Myres", "myers.geoffrey@gmail.com", 38, 10, 20, 30);
-   test1.print();
-   test1.setStudentID("BBB2");
-   test1.setFirstname("Geoffrey");
-   test1.setLastname("Myers");
-   test1.setDaysPerClass(5, 10, 20);
-   test1.setAge(39);
-   test1.print();
-}
-*/

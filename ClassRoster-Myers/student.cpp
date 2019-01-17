@@ -29,11 +29,12 @@ Student::Student(string studentID, string firstName, string lastName,
    this->daysPerClass[2] = daysInCourse3;
 }
 
-
 Student::~Student()
 {
-   delete this;
+   cout << "Student object " << studentID << " deleted." << endl;
 }
+
+
 
 string Student::getStudentID() const
 //return the studentID string
@@ -161,17 +162,3 @@ bool Student::isEmailValid() const
 
    return validEmail;
 }
-
-/* Basic test of the student class
-int main() 
-{
-   Student test1("AAA1", "Geoff", "Myres", "myers.geoffrey@gmail.com", 38, 10, 20, 30);
-   test1.print();
-   test1.setStudentID("BBB2");
-   test1.setFirstname("Geoffrey");
-   test1.setLastname("Myers");
-   test1.setDaysPerClass(5, 10, 20);
-   test1.setAge(39);
-   test1.print();
-}
-*/

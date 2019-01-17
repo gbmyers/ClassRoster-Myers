@@ -17,10 +17,7 @@ Roster::~Roster()
    {
       delete student;
    }
-
-   //found these very useful functions in the reference at cppreference.com
-
-   delete &classRosterArray;
+   cout << "Roster object deleted." << endl;
 }
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, Degree program)
@@ -239,12 +236,10 @@ int main()
    "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
    "A5,Geoffrey,Myers,gmyer12@wgu.edu,39,5,10,25,SOFTWARE" };
     
-   const string header = "Class: Scripting and Programming - Applications – C867\n \
-Language: C++11\n \
-Student: Geoffrey Myers (SID: 000883177)\n";
-
-   cout << header;
-
+   //print out header for output
+   cout << "Class: Scripting and Programming - Applications – C867" << endl
+      << "Language: C++11" << endl
+      << "Student: Geoffrey Myers (SID: 000883177)" << endl << endl;
 
    Roster classRoster;
 
@@ -271,6 +266,6 @@ Student: Geoffrey Myers (SID: 000883177)\n";
 
    classRoster.printAll();
 
-   delete &classRoster;
+   //delete &classRoster;
 }
 
