@@ -160,6 +160,15 @@ void Roster::printAll() const
    cout << endl;
 }
 
+void Roster::printInvalidEmails() const
+{
+   for (Student* student : classRosterArray)
+   {
+      if (not student->isEmailValid()) cout << "Invalid email: " << student->getEmailAddress() << endl;
+   }
+   cout << endl;
+}
+
 void Roster::printByDegreeProgram(Degree degreeProgram) const
 //prints each student that matches the given degree program
 {
@@ -198,32 +207,30 @@ void Roster::printHeader()
 }
 
 
-const string studentData[] =
-{ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
-"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
-"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
-"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-"A5,Geoffrey,Myers,gmyer12@wgu.edu,39,5,10,25,SOFTWARE" };
+
 
 int main() 
 {
+   const string studentData[] =
+   { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
+   "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
+   "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
+   "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
+   "A5,Geoffrey,Myers,gmyer12@wgu.edu,39,5,10,25,SOFTWARE" };
+
+   string testString = "invalid email@somewhere.com";
+   if ( testString.find("*") == string::npos) cout << "not found" << endl;
+
 
    Roster classRoster;
 
-   /*classRoster.add("A1", "John", "Smith", "John1989@gm ail.com", 20, 30, 35, 40, SECURITY);
-   classRoster.add("A2", "Suzan", "Erickson", "Erickson_1990@gmailcom", 19, 50, 30, 40, NETWORK);
-   classRoster.add("A3", "Jack", "Napoli", "The_lawyer99yahoo.com", 19, 20, 40, 33, SOFTWARE);
-   classRoster.add("A4", "Erin", "Black", "Erin.black@comcast.net", 22, 50, 58, 40, SECURITY);*/
-   classRoster.add("A5", "Geoffrey", "Myers", "myers.geoffrey@gmail.com", 39, 10, 10, 10, SOFTWARE);
-   classRoster.add("A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY");
-
-   /*TODO:
-      * add each student to the class roster
-    */
-
-
+   for (string student : studentData)
+   {
+      classRoster.add(student);
+   }
+   
    classRoster.printAll();
-   //classRoster.printInvalidEmails();
+   classRoster.printInvalidEmails();
    //loop through classRosterArray and for each element:
    //   classRoster.printAverageDaysInCourse(/*current object's student id*/);
 

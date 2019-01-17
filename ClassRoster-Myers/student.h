@@ -67,7 +67,10 @@ public:
    float averageDaysPerClass() const;
    // returns the average number of days the student has been in class
 
-   //column widths for printing
+   bool isEmailValid() const;
+   // true if the student's email is valid
+
+   //column widths for formatting output
    static const int NAME_W = 30;
    static const int ID_W = 4;
    static const int EMAIL_W = 30;

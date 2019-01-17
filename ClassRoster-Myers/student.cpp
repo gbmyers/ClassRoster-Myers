@@ -135,6 +135,16 @@ float Student::averageDaysPerClass() const
    return total / NUMBER_OF_CLASSES;
 }
 
+bool Student::isEmailValid() const
+{
+   bool noSpace = emailAddress.find(" ") == string::npos;
+   bool hasAt = emailAddress.find("@") != string::npos;
+   bool hasDot = emailAddress.find(".") != string::npos;
+
+   bool validEmail = noSpace && hasAt && hasDot;
+   return validEmail;
+}
+
 /* Basic test of the student class
 int main() 
 {
